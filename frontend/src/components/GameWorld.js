@@ -145,7 +145,10 @@ function GameWorld({ gameState, setGameState }) {
       
       // Get all block meshes
       const blockMeshes = Array.from(blocksRef.current.values()).filter(mesh => mesh && mesh.visible);
+      console.log('🎯 Found block meshes for raycasting:', blockMeshes.length); // Debug log
+      
       const intersects = raycaster.intersectObjects(blockMeshes);
+      console.log('🎯 Raycaster intersections:', intersects.length); // Debug log
       
       if (intersects.length > 0) {
         const intersectedBlock = intersects[0];
