@@ -131,7 +131,6 @@ function GameWorld({ gameState, setGameState }) {
     const handleMouseDown = (event) => {
       if (!gameState.isPlaying) return;
       
-      console.log('Mouse clicked:', event.button); // Debug log
       event.preventDefault();
       
       // Raycasting for block selection
