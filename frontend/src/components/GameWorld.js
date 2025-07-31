@@ -159,10 +159,15 @@ function GameWorld({ gameState, setGameState }) {
         ];
         
         if (event.button === 0) { // Left click - break
+          console.log('🔨 Breaking block at:', blockPosition); // Debug log
           handleBlockInteraction(blockPosition, 'break');
         } else if (event.button === 2) { // Right click - place
           // Calculate placement position based on face normal
           const face = intersectedBlock.face;
+          if (!face || !face.normal) {
+            console.log('⚠️ No face normal found, skipping placement'); // Debug log
+            return;
+          }
           const placePosition = [
             blockPosition[0] + (face.normal.x > 0 ? 1 : face.normal.x < 0 ? -1 : 0),
             blockPosition[1] + (face.normal.y > 0 ? 1 : face.normal.y < 0 ? -1 : 0),
