@@ -72,6 +72,7 @@ const blockMaterials = {
 };
 
 function GameWorld({ gameState, setGameState }) {
+  const { camera } = useThree();
   const worldRef = useRef();
   const blocksRef = useRef(new Map());
   
