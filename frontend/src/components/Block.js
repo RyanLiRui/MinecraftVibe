@@ -7,34 +7,24 @@ const createBlockMaterial = (type) => {
   const materials = {
     grass: new THREE.MeshLambertMaterial({ 
       color: new THREE.Color('#4CAF50'),
-      transparent: false,
-      roughness: 0.8,
-      metalness: 0.1
+      transparent: false
     }),
     dirt: new THREE.MeshLambertMaterial({ 
       color: new THREE.Color('#8B4513'),
-      transparent: false,
-      roughness: 0.9,
-      metalness: 0.0
+      transparent: false
     }),
     stone: new THREE.MeshLambertMaterial({ 
       color: new THREE.Color('#708090'),
-      transparent: false,
-      roughness: 0.7,
-      metalness: 0.2
+      transparent: false
     }),
     wood: new THREE.MeshLambertMaterial({ 
       color: new THREE.Color('#DEB887'),
-      transparent: false,
-      roughness: 0.8,
-      metalness: 0.0
+      transparent: false
     }),
     leaves: new THREE.MeshLambertMaterial({ 
       color: new THREE.Color('#228B22'),
       transparent: true,
-      opacity: 0.8,
-      roughness: 0.9,
-      metalness: 0.0
+      opacity: 0.8
     })
   };
   
