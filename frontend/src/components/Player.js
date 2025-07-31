@@ -25,9 +25,11 @@ function Player({ gameState, setGameState }) {
   
   // Track velocity for jump detection
   useEffect(() => {
+    console.log('🔧 Setting up physics API velocity subscription'); // Debug log
     const unsubscribe = api.velocity.subscribe((velocity) => {
       velocityRef.current = velocity;
       canJumpRef.current = Math.abs(velocity[1]) < 0.5; // Can jump when vertical velocity is low
+      console.log('📊 Velocity updated:', velocity, 'Can jump:', canJumpRef.current); // Debug log
     });
     
     return unsubscribe;
