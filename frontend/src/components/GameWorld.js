@@ -88,7 +88,7 @@ function GameWorld({ gameState, setGameState }) {
   }));
 
   // Handle block interactions
-  const handleBlockInteraction = (position, type) => {
+  const handleBlockInteraction = React.useCallback((position, type) => {
     if (type === 'break') {
       // Remove block
       setBlocks(prev => prev.filter(block => 
@@ -124,7 +124,7 @@ function GameWorld({ gameState, setGameState }) {
         }
       }));
     }
-  };
+  }, [gameState.selectedBlock, setGameState]);
 
   // Mouse controls for block interaction
   useEffect(() => {
