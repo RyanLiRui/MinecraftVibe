@@ -123,15 +123,19 @@ function Player({ gameState, setGameState }) {
     // WASD movement
     if (keysRef.current['KeyW']) {
       direction.z -= 1;
+      console.log('Moving forward'); // Debug log
     }
     if (keysRef.current['KeyS']) {
       direction.z += 1;
+      console.log('Moving backward'); // Debug log
     }
     if (keysRef.current['KeyA']) {
       direction.x -= 1;
+      console.log('Moving left'); // Debug log
     }
     if (keysRef.current['KeyD']) {
       direction.x += 1;
+      console.log('Moving right'); // Debug log
     }
     
     // Normalize and apply camera rotation
@@ -147,6 +151,7 @@ function Player({ gameState, setGameState }) {
     if (keysRef.current['Space'] && canJumpRef.current) {
       velocity[1] = JUMP_FORCE;
       canJumpRef.current = false;
+      console.log('Jumping'); // Debug log
     }
     
     // Apply movement
