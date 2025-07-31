@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { Box } from '@react-three/cannon';
+import { useBox } from '@react-three/cannon';
 import * as THREE from 'three';
 
 // Enhanced block materials with better stylized look
