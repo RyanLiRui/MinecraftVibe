@@ -137,8 +137,7 @@ function GameWorld({ gameState, setGameState }) {
       const raycaster = new THREE.Raycaster();
       const mouse = new THREE.Vector2(0, 0); // Center of screen
       
-      // Get camera from the scene
-      const camera = worldRef.current?.parent?.parent?.children?.find(child => child.isCamera);
+      // Use camera from useThree hook
       if (!camera) return;
       
       raycaster.setFromCamera(mouse, camera);
