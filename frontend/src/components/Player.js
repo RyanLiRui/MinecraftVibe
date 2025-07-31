@@ -111,6 +111,8 @@ function Player({ gameState, setGameState }) {
   useFrame((state, delta) => {
     if (!gameState.isPlaying) return;
     
+    console.log('🔄 useFrame running, isPlaying:', gameState.isPlaying); // Debug log
+    
     // Update camera rotation based on mouse movement
     camera.rotation.order = 'YXZ';
     camera.rotation.y = -mouseRef.current.x;
@@ -123,15 +125,19 @@ function Player({ gameState, setGameState }) {
     // WASD movement
     if (keysRef.current['KeyW']) {
       direction.z -= 1;
+      console.log('⬆️ Moving forward'); // Debug log
     }
     if (keysRef.current['KeyS']) {
       direction.z += 1;
+      console.log('⬇️ Moving backward'); // Debug log
     }
     if (keysRef.current['KeyA']) {
       direction.x -= 1;
+      console.log('⬅️ Moving left'); // Debug log
     }
     if (keysRef.current['KeyD']) {
       direction.x += 1;
+      console.log('➡️ Moving right'); // Debug log
     }
     
     // Normalize and apply camera rotation
@@ -141,21 +147,25 @@ function Player({ gameState, setGameState }) {
       
       velocity[0] = direction.x * MOVEMENT_SPEED;
       velocity[2] = direction.z * MOVEMENT_SPEED;
+      console.log('🏃 Applying velocity:', velocity); // Debug log
     }
     
     // Jumping
     if (keysRef.current['Space'] && canJumpRef.current) {
       velocity[1] = JUMP_FORCE;
       canJumpRef.current = false;
+      console.log('🦘 Jumping with force:', JUMP_FORCE); // Debug log
     }
     
     // Apply movement
+    console.log('🔧 Setting API velocity:', velocity); // Debug log
     api.velocity.set(velocity[0], velocity[1], velocity[2]);
     
     // Update camera position to follow player
     if (ref.current) {
       camera.position.copy(ref.current.position);
       camera.position.y += 0.8; // Eye height
+      console.log('📷 Camera position:', camera.position); // Debug log
     }
     
     // Apply air resistance for smoother movement
