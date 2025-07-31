@@ -45,16 +45,15 @@ function Player({ gameState, setGameState }) {
     return unsubscribe;
   }, [api, setGameState]);
   
+// Remove debug console.log statements now that we've fixed the main issue
   // Set up controls
   useEffect(() => {
     const handleKeyDown = (event) => {
       keysRef.current[event.code] = true;
-      console.log('Key pressed:', event.code); // Debug log
     };
     
     const handleKeyUp = (event) => {
       keysRef.current[event.code] = false;
-      console.log('Key released:', event.code); // Debug log
     };
     
     const handleMouseMove = (event) => {
