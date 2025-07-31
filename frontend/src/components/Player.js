@@ -37,7 +37,9 @@ function Player({ gameState, setGameState }) {
   
   // Update player position in game state
   useEffect(() => {
+    console.log('🔧 Setting up position API subscription'); // Debug log
     const unsubscribe = api.position.subscribe((position) => {
+      console.log('📍 Player position updated:', position); // Debug log
       setGameState(prev => ({
         ...prev,
         playerPosition: position
