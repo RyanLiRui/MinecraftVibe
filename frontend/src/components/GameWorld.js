@@ -192,7 +192,7 @@ function GameWorld({ gameState, setGameState }) {
       document.removeEventListener('mousedown', handleMouseDown);
       document.removeEventListener('contextmenu', handleContextMenu);
     };
-  }, [gameState.isPlaying, blocks, gameState.selectedBlock, gameState.inventory]);
+  }, [gameState.isPlaying, blocks, gameState.selectedBlock, gameState.inventory, camera, handleBlockInteraction]);
 
   return (
     <group ref={worldRef}>
