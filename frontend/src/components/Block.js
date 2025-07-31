@@ -58,7 +58,7 @@ function Block({ position, type, onRef }) {
   const geometry = createBlockGeometry();
   
   // Physics body for collision
-  const [ref, api] = Box(() => ({
+  const [ref, api] = useBox(() => ({
     position: position,
     mass: 0, // Static blocks
     material: { friction: 0.9, restitution: 0.1 }
