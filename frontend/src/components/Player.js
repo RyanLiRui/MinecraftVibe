@@ -8,7 +8,7 @@ const JUMP_FORCE = 15;
 const MOUSE_SENSITIVITY = 0.002;
 
 function Player({ gameState, setGameState }) {
-  const { camera, gl } = useThree();
+  const { camera } = useThree();
   const keysRef = useRef({});
   const mouseRef = useRef({ x: 0, y: 0 });
   const velocityRef = useRef([0, 0, 0]);
