@@ -1,6 +1,6 @@
 import React, { useMemo, useRef, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { Box, usePlane } from '@react-three/cannon';
+import { usePlane } from '@react-three/cannon';
 import * as THREE from 'three';
 import Block from './Block';
 
